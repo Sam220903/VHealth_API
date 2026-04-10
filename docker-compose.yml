@@ -1,0 +1,44 @@
+services: 
+  vhealth_db:
+    image: mysql
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db/VH_DB_V1.sql:/docker-entrypoint-initdb.d/VH_DB_V1.sql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: VHEALTH
+      MYSQL_DATABASE: vh_db
+      MYSQL_USER: vh_user
+      MYSQL_PASSWORD: "#VHealth10"
+      MYSQL_CHARSET: utf8mb4
+    ports:
+      - "3306:3306"
+    networks:
+      - app_network
+    container_name: vhealth_db
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+  vhealth_api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./api:/var/www/html/api
+    depends_on:
+      - vhealth_db
+    networks:
+      - app_network
+    container_name: vhealth_api
+    environment:
+      - DB_HOST=vhealth_db
+      - DB_USER=vh_user
+      - DB_PASSWORD="#VHealth10"
+      - DB_NAME=vh_db
+
+volumes:
+  db_data:
+
+networks:
+  app_network:
