@@ -1,4 +1,4 @@
-CREATE TABLE users (
+CREATE TABLE vh_users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
@@ -6,7 +6,7 @@ CREATE TABLE users (
     register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE exercises (
+CREATE TABLE vh_exercises (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     description TEXT NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE exercises (
     ai_parameters JSON NOT NULL
 );
 
-CREATE TABLE routines (
+CREATE TABLE vh_routines (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     name VARCHAR(100) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE routines (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
-CREATE TABLE routines_exercises (
+CREATE TABLE vh_routines_exercises (
     id INT AUTO_INCREMENT PRIMARY KEY,
     routine_id INT NOT NULL,
     exercise_id INT NOT NULL,

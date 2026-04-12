@@ -1,7 +1,7 @@
 <?php
 
 $connection = [
-    "servername" => "vhealth_db",
+    "servername" => "localhost",
     "username" => "vh_user",
     "password" => "#VHealth10",
     "dbname" => "vh_db"

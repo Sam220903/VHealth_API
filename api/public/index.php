@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 global $connection;
 
 spl_autoload_register(function ($class) {
@@ -57,4 +61,18 @@ switch($route){
     case "test":
         echo json_encode(["php_version" => phpversion()]);
         break;
+
+
+    case "exercises":
+        $exerciseService = new ExerciseService($dbConnection); // Pass the connection object
+        $exerciseController = new ExerciseController($exerciseService);
+        try {
+            $exerciseController->processRequest($_SERVER['REQUEST_METHOD'], $id);
+        } catch (Exception $e) {
+            http_response_code(400);
+            echo json_encode(["error" => $e->getMessage()]);
+        }
+        break;
+
+
 }
