@@ -74,5 +74,17 @@ switch($route){
         }
         break;
 
+    case "routines" :
+        $routineService = new RoutineService($dbConnection); // Pass the connection object
+        $routineController = new RoutineController($routineService);
+        try {
+            $routineController->processRequest($_SERVER['REQUEST_METHOD'], $id);
+        } catch (Exception $e) {
+            http_response_code(400);
+            echo json_encode(["error" => $e->getMessage()]);
+        }
+        break;
+    
+
 
 }
