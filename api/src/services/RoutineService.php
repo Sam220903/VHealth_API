@@ -47,7 +47,7 @@ class RoutineService {
     }
 
     private function getRoutineExercises(string $routine_id){
-        $sql = "SELECT exercise_id, sort_order, name, repetitions, body_zone, ai_parameters
+        $sql = "SELECT exercise_id, sort_order, name, repetitions, body_zone, ai_parameters, lottie_url AS 'animation_url'
                     FROM vh_routines_exercises re
                     JOIN vh_exercises e ON (re.exercise_id = e.id)
                     WHERE routine_id = :id
