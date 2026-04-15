@@ -4,7 +4,7 @@
 $connection = [
     "servername" => "localhost",
     "username" => "root",
-    "password" => "@Hazard3654",
+    "password" => "",
     "dbname" => "vh_db"
 ];
 
