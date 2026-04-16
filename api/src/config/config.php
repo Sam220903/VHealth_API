@@ -4,9 +4,17 @@
 $connection = [
     "servername" => "localhost",
     "username" => "root",
-    "password" => "",
+    "password" => "@Hazard3654",
     "dbname" => "vh_db"
 ];
+
+// Conexión en producción
+// $connection = [
+//     "servername" => "localhost",
+//     "username" => "root",
+//     "password" => "root",
+//     "dbname" => "vh_db"
+// ];
 
 // Conexión usando contenedor docker
 // $connection = [
