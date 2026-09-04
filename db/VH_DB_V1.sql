@@ -46,7 +46,13 @@ CREATE TABLE vh_routines_exercises (
 -- 3. INSERCIÓN DE EJERCICIOS (Nuestros 5 ganadores refinados)
 INSERT INTO vh_exercises (id, name, description, body_zone, ai_parameters, video_url) VALUES 
 -- Ejercicio 1: Sentadillas (Rodilla dobla: 180 baja a 100)
-(1, 'Sentadillas', 'Ejercicio compuesto para cuádriceps y glúteos. Mantén la espalda recta y baja hasta que tus muslos estén paralelos al suelo.', 'Tren inferior', '{"key_points": [23, 25, 27], "joint": "rodilla", "threshold_start": 150, "threshold_contract": 115, "logic_state": "descending"}', '/videos/squats.mp4'),
+(1, 'Sentadillas', 'Ejercicio compuesto para cuádriceps y glúteos. Mantén la espalda recta y baja hasta que tus muslos estén paralelos al suelo.', 'Tren inferior', 
+'{ "key_points": [23, 25, 27],
+     "joint": "rodilla", 
+     "threshold_start": 150, 
+     "threshold_contract": 115, 
+     "logic_state": "descending"}', 
+     '/videos/squats.mp4'),
 
 -- Ejercicio 2: Desplantes / Zancadas (Rodilla dobla: 180 baja a 100)
 (2, 'Desplantes (Zancadas)', 'Da un paso hacia adelante y baja la cadera hasta que ambas rodillas formen un ángulo de 90 grados. Mantén el torso recto.', 'Tren inferior', '{"key_points": [23, 25, 27], "joint": "rodilla", "threshold_start": 160, "threshold_contract": 100, "logic_state": "descending"}', '/videos/lunge_exercise.mp4'),
